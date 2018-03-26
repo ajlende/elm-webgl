@@ -169,21 +169,21 @@ scene camera texture =
         , perspective =
             Mat4.mul camera (Mat4.makeScale (vec3 1 -1 1))
         }
-    , WebGL.entityWith
-        [ StencilTest.test
-            { ref = 1
-            , mask = 1
-            , test = StencilTest.never
-            , fail = StencilTest.zero
-            , zfail = StencilTest.keep
-            , zpass = StencilTest.keep
-            , writeMask = 0xFF
-            }
-        ]
-        nothingVertex
-        nothingFragment
-        passMesh
-        {}
+    -- , WebGL.entityWith
+    --     [ StencilTest.test
+    --         { ref = 1
+    --         , mask = 1
+    --         , test = StencilTest.never
+    --         , fail = StencilTest.zero
+    --         , zfail = StencilTest.keep
+    --         , zpass = StencilTest.keep
+    --         , writeMask = 0xFF
+    --         }
+    --     ]
+    --     nothingVertex
+    --     nothingFragment
+    --     nothingMesh
+    --     {}
     ]
 
 
@@ -286,11 +286,16 @@ passMesh =
         ]
 
 
+nothingMesh : Mesh {}
+nothingMesh =
+    WebGL.triangles [ ( {}, {}, {} ) ]
+
+
 
 -- Shaders
 
 
-nothingVertex : Shader PassVertex {} {}
+nothingVertex : Shader {} {} {}
 nothingVertex =
     [glsl| void main () { } |]
 
