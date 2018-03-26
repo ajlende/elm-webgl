@@ -278,14 +278,11 @@ type alias PassVertex =
 
 passMesh : Mesh PassVertex
 passMesh =
-    WebGL.indexedTriangles
-        [ PassVertex (vec2 -1 1)
-        , PassVertex (vec2 -1 -1)
-        , PassVertex (vec2 1 -1)
-        , PassVertex (vec2 1 1)
-        ]
-        [ ( 0, 1, 2 )
-        , ( 0, 2, 3 )
+    WebGL.triangles
+        [ ( PassVertex (vec2 -1 2)
+          , PassVertex (vec2 -1 -1)
+          , PassVertex (vec2 2 -1)
+          )
         ]
 
 
