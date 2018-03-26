@@ -377,6 +377,7 @@ var _elm_community$webgl$Native_WebGL = function () {
 
     gl.bindFramebuffer(gl.FRAMEBUFFER, currentFrameBuffer);
     gl.viewport(0, 0, width, height);
+    gl.stencilMask(0xFF);
     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT | gl.STENCIL_BUFFER_BIT);
 
     listEach(drawEntity, entities);
