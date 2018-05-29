@@ -3,9 +3,7 @@ var _elm_community$webgl$Native_WebGL = function () {
 
   // setup logging
   // eslint-disable-next-line no-unused-vars
-  function LOG(msg) {
-    // console.log(msg);
-  }
+  var LOG = console.log.bind(console, 'WebGL');
 
   function guid() {
     // eslint-disable-next-line camelcase
