@@ -599,6 +599,13 @@ var _elm_community$webgl$Native_WebGL = function () {
             gl.clearStencil(s1);
           });
           break;
+        case 'XRContext':
+          sceneSettings.push(function (gl) {
+            // HACK: Quick n' dirty way to get the webgl context out of here
+            console.log("XRContext set")
+            window._elm_community$webgl$Native_WebXR$context = gl
+          });
+          break;
       }
     }, model.options);
 

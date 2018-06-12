@@ -23,6 +23,7 @@ module WebGL
         , antialias
         , clearColor
         , unsafeShader
+        , xrContext
         )
 
 {-| The WebGL API is for high performance rendering. Definitely read about
@@ -52,12 +53,16 @@ before trying to do too much with just the documentation provided here.
 
 # Unsafe Shader Creation (for library writers)
 @docs unsafeShader
+
+# XR Context (temporary)
+@docs xrContext
 -}
 
 import Html exposing (Html, Attribute)
 import WebGL.Settings as Settings exposing (Setting)
 import WebGL.Settings.DepthTest as DepthTest
 import Native.WebGL
+import WebXR.Context exposing (Context)
 
 
 {-| Mesh forms geometry from the specified vertices. Each vertex contains a
@@ -315,6 +320,7 @@ type Option
     | Stencil Int
     | Antialias
     | ClearColor Float Float Float Float
+    | XRContext Context
 
 
 {-| Enable alpha channel in the drawing buffer. If the argument is `True`, then
@@ -360,3 +366,11 @@ clamped between 0 and 1. The default is all 0's.
 clearColor : Float -> Float -> Float -> Float -> Option
 clearColor =
     ClearColor
+
+
+{-| Used for passing around the WebXR context until I think of a better way to
+access the contents between WebGL, WebXR, and WebXR.AnimationFrame
+-}
+xrContext : Context -> Option
+xrContext =
+    XRContext
