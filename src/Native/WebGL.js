@@ -602,8 +602,8 @@ var _elm_community$webgl$Native_WebGL = function () {
         case 'XRContext':
           sceneSettings.push(function (gl) {
             // HACK: Quick n' dirty way to get the webgl context out of here
-            console.log("XRContext set")
-            window._elm_community$webgl$Native_WebXR$context = gl
+            window._elm_community$webgl$Native_WebXR$gl = gl;
+            LOG("XRContext set");
           });
           break;
       }
